@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Erreur</title>
+</head>
+<body>
+    <h1>Le mot de passe de correspond pas !</h1>
+    <form id="form">
+        <input type="text" id="pass" placeholder="Entrez le mot de passe" autocomplete="off">
+        <input type="submit" value="Accéder">
+    </form>
+</body>
+<script src="/jquery/jquery.min.js"></script>
+<script>
+    $("#form").on("submit", (e) => {
+        e.preventDefault();
+        // window.location.origin
+        window.location.href = `${window.location.origin}/${$("#pass").val()}`;
+    });
+</script>
+</html>

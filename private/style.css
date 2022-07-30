@@ -1,0 +1,14 @@
+@import url(//db.onlinewebfonts.com/c/0f361cd91855471c1142a30bcd51e44f?family=Arsenica+Trial);
+
+body {
+    color: white;
+    background: radial-gradient(circle, #640e19 0%, #110b19 100%);
+}
+h1 {
+    margin: auto;
+    margin-top: 25%;
+    font-size: 3.5em;
+    width: 40%;
+    padding: 1% 3%;
+    background: linear-gradient(45deg, #1b1428 60%, #6c2732 100%);
+}
