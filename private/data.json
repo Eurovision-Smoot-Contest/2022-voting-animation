@@ -1,0 +1,72 @@
+{
+    "countries": [
+        {
+            "name": "Norway",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/1280px-Flag_of_Norway.svg.png"
+        },
+        {
+            "name": "Sweden",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png"
+        },
+        {
+            "name": "Quebec",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Flag_of_Quebec.svg/1280px-Flag_of_Quebec.svg.png"
+        },
+        {
+            "name": "Belgium",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/2560px-Flag_of_Belgium_%28civil%29.svg.png"
+        },
+        {
+            "name": "Germany",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png"
+        },
+        {
+            "name": "France",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png"
+        }
+    ],
+    "jury_points": [
+        {
+            "jury_name": "BlueCooKies6014",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+        },
+        {
+            "jury_name": "Devilfirebats1",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+        },
+        {
+            "jury_name": "Kymoz",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+        },
+        {
+            "jury_name": "Sawcee",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+        }
+    ],
+    "public_points": [
+        {
+            "id": "norway",
+            "points": 6
+        },
+        {
+            "id": "sweden",
+            "points": 1
+        },
+        {
+            "id": "quebec",
+            "points": 2
+        },
+        {
+            "id": "belgium",
+            "points": 3
+        },
+        {
+            "id": "germany",
+            "points": 4
+        },
+        {
+            "id": "france",
+            "points": 5
+        }
+    ]
+}
