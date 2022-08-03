@@ -4,6 +4,17 @@
 body {
     background: radial-gradient(circle, #640e19 0%, #110b19 100%);
 }
+#title {
+    position: absolute;
+    text-align: center;
+    font-family: "Gotham", sans-serif;
+    font-size: 3em;
+    font-weight: 500;
+    color: white;
+    width: 99%;
+    height: 100px;
+    top: 10%;
+}
 .country {
     display: flex;
     position: absolute;
@@ -17,8 +28,8 @@ body {
     width: 750px;
     height: 50px;
     padding: 1% 1%;
-    background: linear-gradient(45deg, #1b1428 60%, #6c2732 100%);
-    transition: bottom 1s ease-in-out;
+    background: linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%);
+    transition: bottom 0.5s ease-in-out, background 0.5s ease-in-out;
 }
 .flag {
     width: 75px;
@@ -33,23 +44,56 @@ body {
 }
 .country-added-points {
     position: absolute;
-    font-family: "Gotham Light", sans-serif;
+    font-family: "Gotham", sans-serif;
     font-size: 2.5em;
+    font-weight: 400;
+    line-height: 50px;
     color: white;
     text-align: center;
-    background-color: aquamarine;
+    background-image: url("imgs/added-points-bg.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 50px;
     height: 50px;
-    padding: 2% 2%;
-    right: 150px;
+    right: 0px;
+    padding: 3.5% 3.5%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, right 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out, right 0.5s ease-in-out;
 }
 .country-points {
-    font-family: "Gotham Light", sans-serif;
-    font-size: 3em;
+    font-family: "Gotham", sans-serif;
+    font-size: 2.5em;
+    font-weight: 400;
+    line-height: 50px;
     color: white;
     width: auto;
     height: 50px;
     margin-left: auto;
+}
+.place {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    grid-gap: 15px;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 1% 1%;
+    background: url("imgs/place-bg.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.place-number {
+    font-family: "Gotham", sans-serif;
+    font-size: 2.75em;
+    font-weight: 600;
+    color: white;
+    margin: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
