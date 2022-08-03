@@ -14,6 +14,8 @@ body {
     width: 99%;
     height: 100px;
     top: 10%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
 }
 .country {
     display: flex;
@@ -29,7 +31,7 @@ body {
     height: 50px;
     padding: 1% 1%;
     background: linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%);
-    transition: bottom 0.5s ease-in-out, background 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .flag {
     width: 75px;
@@ -80,13 +82,16 @@ body {
     margin: auto;
     grid-gap: 15px;
     align-items: center;
-    width: 50px;
+    width: 0px;
     height: 50px;
     padding: 1% 1%;
     background: url("imgs/place-bg.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    overflow: hidden;
+    opacity: 0;
+    transition: width 0.5s ease-out;
 }
 .place-number {
     font-family: "Gotham", sans-serif;

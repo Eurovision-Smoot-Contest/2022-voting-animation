@@ -86,16 +86,27 @@ function next() {
                 const place = (i + 1);
                 const countryID = POINTS[i].id;
                 const countryEl = $(`#${countryID}`);
+                countryEl.css("width", "675px");
                 $(`<div class="place" id="${countryID}-place"><div class="place-number">0${place}</div></div>`).insertBefore(countryEl);
                 $(`#${countryID}-place`).css("bottom", countryEl.css("bottom"));
-                $(`#${countryID}-place`).css("transform", "translateX(-310px)");
                 countryEl.css("background", "linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%)");
-                countryEl.css("transform", "translateX(100px)");
-                countryEl.css("width", "675px");
+                countryEl.css("opacity", 0);
                 moving += 200;
             }
             $(`<div id="title">Results of the Eurovision Smoot Contest 2022</div>`).insertBefore("#countries");
             stade ++;
+            return;
+        } else if ((newStade - 1) == infos.countries_nb) {
+            for (i = 0; i < POINTS.length; i++) {
+                const countryID = POINTS[i].id;
+                const countryEl = $(`#${countryID}`);
+                countryEl.css("opacity", 1);
+                countryEl.css("transform", "translateX(100px)");
+                $(`#${countryID}-place`).css("opacity", 1);
+                $(`#${countryID}-place`).css("transform", "translateX(-310px)");
+                $(`#${countryID}-place`).css("width", "50px")
+            }
+            $("#title").css("opacity", 1);
             return;
         } else if (newStade > infos.countries_nb) return;
         const countryID = getID(DATA.countries[newStade].name);
