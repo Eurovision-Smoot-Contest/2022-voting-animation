@@ -4,8 +4,14 @@ var infos = {};
 var POINTS = [];
 var publicPoints = []
 
+var VOTE_MOVING_START = -800;
+var VOTE_MOVING_IN = 160;
+
+var FINAL_MOVING_START = -850;
+var FINAL_MOVING_IN = 150;
+
 function getID(name) {
-    return name.toLowerCase().replace(" ", "-");
+    return name.toLowerCase().replace(" ", "-").replace(" ", "-");
 }
 
 $.getJSON("data.json", (data) => {
@@ -15,7 +21,7 @@ $.getJSON("data.json", (data) => {
     infos.jury_nb = DATA.jury_points.length;
     infos.countries_nb = DATA.countries.length;
 
-    let moving= -500;
+    let moving= VOTE_MOVING_START;
     for (i = 0; i < data.countries.length; i++) {
         const country = data.countries[i];
         const countryID = getID(country.name);
@@ -26,7 +32,7 @@ $.getJSON("data.json", (data) => {
                                     <h1 class="country-points" id="${countryID}-points">0</h1>
                                 </div>`);
         $(`#${countryID}`).css("bottom", `${moving}px`)
-        moving += 200;
+        moving += VOTE_MOVING_IN;
         POINTS.push({id: countryID, points: 0});
     }
     POINTS.reverse();
@@ -49,7 +55,7 @@ function addPoints(id, points) {
     addedPointsElement.css("opacity", 1);
     addedPointsElement.css("right", "150px");
     setTimeout(() => {
-        sort();
+        sort(false);
         setTimeout(() => {
             addedPointsElement.css("right", "-100px").delay(1000);
             setTimeout(() => {
@@ -63,15 +69,16 @@ function addPoints(id, points) {
     }, 3000);
 }
 
-function sort() {
+function sort(final) {
     POINTS.sort((a, b) => {
         return b.points - a.points
     });
-    let moving= -500;
+    let moving = final ? FINAL_MOVING_START : VOTE_MOVING_START;
     for (i = (POINTS.length - 1); i >= 0; i--) {
         const country = POINTS[i];
         $(`#${country.id}`).css("bottom", `${moving}px`);
-        moving += 200;
+        if (final) $(`#${country.id}-place`).css("bottom", `${moving}px`);
+        moving += final ? FINAL_MOVING_IN : VOTE_MOVING_IN;
     }
 }
 
@@ -81,18 +88,16 @@ function next() {
     } else {
         const newStade = stade - infos.jury_nb;
         if (newStade == infos.countries_nb) {
-            let moving = -500;
             for (i = 0; i < POINTS.length; i++) {
                 const place = (i + 1);
                 const countryID = POINTS[i].id;
                 const countryEl = $(`#${countryID}`);
                 countryEl.css("width", "675px");
-                $(`<div class="place" id="${countryID}-place"><div class="place-number">0${place}</div></div>`).insertBefore(countryEl);
-                $(`#${countryID}-place`).css("bottom", countryEl.css("bottom"));
+                $(`<div class="place" id="${countryID}-place"><div class="place-number">${(place < 10 ? "0" : "") + place}</div></div>`).insertBefore(countryEl);
                 countryEl.css("background", "linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%)");
                 countryEl.css("opacity", 0);
-                moving += 200;
             }
+            sort(true);
             $(`<div id="title">Results of the Eurovision Smoot Contest 2022</div>`).insertBefore("#countries");
             stade ++;
             return;
@@ -101,9 +106,9 @@ function next() {
                 const countryID = POINTS[i].id;
                 const countryEl = $(`#${countryID}`);
                 countryEl.css("opacity", 1);
-                countryEl.css("transform", "translateX(100px)");
+                countryEl.css("transform", "translateX(95px)");
                 $(`#${countryID}-place`).css("opacity", 1);
-                $(`#${countryID}-place`).css("transform", "translateX(-310px)");
+                $(`#${countryID}-place`).css("transform", "translateX(-295px)");
                 $(`#${countryID}-place`).css("width", "50px")
             }
             $("#title").css("opacity", 1);

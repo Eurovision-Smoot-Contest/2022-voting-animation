@@ -23,6 +23,26 @@
         {
             "name": "France",
             "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png"
+        },
+        {
+            "name": "Italy",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1920px-Flag_of_Italy.svg.png"
+        },
+        {
+            "name": "Papua New Guinea",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/1280px-Flag_of_Papua_New_Guinea.svg.png"
+        },
+        {
+            "name": "United States",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1920px-Flag_of_the_United_States.svg.png"
+        },
+        {
+            "name": "Netherlands",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1920px-Flag_of_the_Netherlands.svg.png"
+        },
+        {
+            "name": "Australia",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1920px-Flag_of_Australia_%28converted%29.svg.png"
         }
     ],
     "jury_points": [
@@ -67,6 +87,26 @@
         {
             "id": "france",
             "points": 5
+        },
+        {
+            "id": "italy",
+            "points": 6
+        },
+        {
+            "id": "papua-new-guinea",
+            "points": 7
+        },
+        {
+            "id": "united-states",
+            "points": 8
+        },
+        {
+            "id": "netherlands",
+            "points": 9
+        },
+        {
+            "id": "australia",
+            "points": 10
         }
     ]
 }
