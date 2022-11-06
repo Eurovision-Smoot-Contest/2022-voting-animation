@@ -28,7 +28,7 @@ body {
     margin: auto;
     grid-gap: 15px;
     align-items: center;
-    width: 750px;
+    width: 650px;
     height: 25px;
     padding: 1% 0.5%;
     background: linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%);
@@ -58,7 +58,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     width: 50px;
-    height: 25px;
+    height: 30px;
     right: 0px;
     padding: 3.5% 3.5%;
     opacity: 0;

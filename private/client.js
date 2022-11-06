@@ -92,7 +92,7 @@ function next() {
                 const place = (i + 1);
                 const countryID = POINTS[i].id;
                 const countryEl = $(`#${countryID}`);
-                countryEl.css("width", "675px");
+                countryEl.css("width", "450px");
                 $(`<div class="place" id="${countryID}-place"><div class="place-number">${(place < 10 ? "0" : "") + place}</div></div>`).insertBefore(countryEl);
                 countryEl.css("background", "linear-gradient(4deg, #1b1428 0%, #1b1428 40%, #6c2732 90%)");
                 countryEl.css("opacity", 0);
@@ -106,9 +106,9 @@ function next() {
                 const countryID = POINTS[i].id;
                 const countryEl = $(`#${countryID}`);
                 countryEl.css("opacity", 1);
-                countryEl.css("transform", "translateX(95px)");
+                countryEl.css("transform", "translateX(25px)");
                 $(`#${countryID}-place`).css("opacity", 1);
-                $(`#${countryID}-place`).css("transform", "translateX(-295px)");
+                $(`#${countryID}-place`).css("transform", "translateX(-250px)");
                 $(`#${countryID}-place`).css("width", "50px")
             }
             $("#title").css("opacity", 1);
