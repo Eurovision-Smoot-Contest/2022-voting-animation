@@ -10,6 +10,8 @@ var VOTE_MOVING_IN = 160;
 var FINAL_MOVING_START = -850;
 var FINAL_MOVING_IN = 150;
 
+var MIN_POINTS_PLAYSOUND = 6;
+
 function getID(name) {
     return name.toLowerCase().replace(" ", "-").replace(" ", "-");
 }
@@ -118,6 +120,7 @@ function next() {
         const pointsToAddIndex = getIndex(countryID, publicPoints);
         const pointsToAdd = publicPoints[pointsToAddIndex].points;
         addPoints(countryID, pointsToAdd);
+        if (pointsToAdd >= MIN_POINTS_PLAYSOUND && (newStade + 1) != infos.countries_nb) playsound("./sounds/score_over_100_points.mp3");
     }
     stade ++;
 }
@@ -125,3 +128,9 @@ function next() {
 document.body.onkeyup = (e) => {
     if(e.key == " ") next();
 };
+
+function playsound(fileName) {
+    var audio = new Audio(fileName);
+    audio.loop = false;
+    audio.play(); 
+}
