@@ -47,20 +47,20 @@
     ],
     "jury_points": [
         {
-            "jury_name": "BlueCooKies6014",
-            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+            "name": "BlueCooKies6014",
+            "points": ["norway", "netherlands", "sweden", "papua-new-guinea", "quebec", "germany", "united-states", "belgium", "italy", "france"]
         },
         {
-            "jury_name": "Devilfirebats1",
-            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+            "name": "Devilfirebats1",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france", "italy", "papua-new-guinea", "united-states", "netherlands"]
         },
         {
-            "jury_name": "Kymoz",
-            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+            "name": "Kymoz",
+            "points": ["france", "italy", "netherlands", "belgium", "united-states", "sweden", "germany", "papua-new-guinea", "norway", "quebec"]
         },
         {
-            "jury_name": "Sawcee",
-            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france"]
+            "name": "Sawcee",
+            "points": ["norway", "sweden", "quebec", "belgium", "germany", "france", "italy", "papua-new-guinea", "united-states", "netherlands"]
         }
     ],
     "public_points": [
