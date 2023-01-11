@@ -46,27 +46,24 @@ class Stade {
 
         $(`#${countryID}-points`).text(this.POINTS[countryPointsIndex].points);
 
-        setTimeout(() => {
-            this.sort(false);
-            if (data.update) {
-                setTimeout(() => {
-                    const addedPointsElements = $(".country-added-points");
-                    for (let i = 0; i < addedPointsElements.length; i++) {
-                        addedPointsElement = addedPointsElements[i];
-                        if ($(addedPointsElement).css("right") == "150px") {
-                            $(addedPointsElement).css("right", "-100px").delay(1000);
-                            setTimeout(() => {
-                                if (data.changeBG) {
-                                    setTimeout(() => {
-                                        $(`#${countryID}`).css("background", "#D74703");
-                                    }, 1000);
-                                }
-                            }, 250);
-                        }
+        if (data.update) {
+            setTimeout(() => {
+                const addedPointsElements = $(".country-added-points");
+                for (let i = 0; i < addedPointsElements.length; i++) {
+                    addedPointsElement = addedPointsElements[i];
+                    if ($(addedPointsElement).css("right") == "150px") {
+                        $(addedPointsElement).css("right", "-100px").delay(1000);
+                        setTimeout(() => {
+                            if (data.changeBG) {
+                                setTimeout(() => {
+                                    $(`#${countryID}`).css("background", "#D74703");
+                                }, 1000);
+                            }
+                        }, 250);
                     }
-                }, 2000);
-            }
-        }, data.timeBeforeSort);
+                }
+            }, 2000);
+        }
     }
     
     sort(final) {
@@ -74,12 +71,15 @@ class Stade {
             return b.points - a.points
         });
         let moving = final ? this.VARS.FINAL_MOVING_START : this.VARS.VOTE_MOVING_START;
+        let sound = false;
         for (i = (this.POINTS.length - 1); i >= 0; i--) {
             const country = this.POINTS[i];
+            if ($(`#${country.id}`).css("bottom") != `${moving}px`) sound = true;
             $(`#${country.id}`).css("bottom", `${moving}px`);
             if (final) $(`#${country.id}-place`).css("bottom", `${moving}px`);
             moving += final ? this.VARS.FINAL_MOVING_IN : this.VARS.VOTE_MOVING_IN;
         }
+        if (sound) playsound("./sounds/switch_position.mp3");
     }
 
     next() {
@@ -97,11 +97,13 @@ class Stade {
                     this.addPoints({
                         id: points[i],
                         points: pointToGive,
-                        timeBeforeSort: 1000,
                         update: false,
                         changeBG: false
                     });
                 }
+                setTimeout(() => this.sort(false), 1000);
+
+                playsound("./sounds/got_points.mp3");
 
                 this.juryNext = true;
                 return;
@@ -111,12 +113,12 @@ class Stade {
                 this.addPoints({
                     id: points[9],
                     points: 12,
-                    timeBeforeSort: 1000,
                     update: true,
                     changeBG: false
                 });
+                setTimeout(() => this.sort(false), 1000);
 
-                playsound("./sounds/12_points.mp3")
+                playsound("./sounds/got_points.mp3");
 
                 this.POINTS.sort((a, b) => {
                     return a.points - b.points;
@@ -141,10 +143,11 @@ class Stade {
             this.addPoints({
                 id: countryID,
                 points: pointsToAdd,
-                timeBeforeSort: 2000,
                 update: true,
                 changeBG: true
             });
+            setTimeout(() => this.sort(false), 1000);
+            playsound("./sounds/got_points.mp3");
             if (pointsToAdd >= this.VARS.MIN_POINTS_PLAYSOUND && this.public+1 != this.infos.countries_nb) playsound("./sounds/score_over_100_points.mp3");
 
             this.public ++;
