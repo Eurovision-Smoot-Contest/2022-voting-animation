@@ -145,8 +145,14 @@ class Stade {
                 changeBG: true
             });
             setTimeout(() => this.sort(false), 1000);
-            playsound("./sounds/got_points.mp3");
-            if (pointsToAdd >= this.VARS.MIN_POINTS_PLAYSOUND && this.public+1 != this.infos.countries_nb) playsound("./sounds/score_over_100_points.mp3");
+
+            const countryPoints = this.POINTS[getIndex(countryID, this.POINTS)].points;
+            if (countryPoints >= this.POINTS[0].points)
+                playsound("./sounds/new_leader.mp3");
+            else if (pointsToAdd <= this.VARS.LESS_POINTS_PLAYSOUND)
+                playsound("./sounds/got_points_but_less.mp3");
+            else
+                playsound("./sounds/got_points.mp3");
 
             this.public ++;
             return;

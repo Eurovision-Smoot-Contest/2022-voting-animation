@@ -7,7 +7,7 @@ socket.on("data", (data) => {
         VOTE_MOVING_IN: 160,
         FINAL_MOVING_START: -850,
         FINAL_MOVING_IN: 150,
-        MIN_POINTS_PLAYSOUND: 100
+        LESS_POINTS_PLAYSOUND: data.lessPointsPlaysound
     });
 
     document.body.onkeyup = (e) => {

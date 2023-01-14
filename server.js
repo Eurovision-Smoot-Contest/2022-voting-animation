@@ -79,6 +79,8 @@ io.on("connection", (socket) => {
             i++;
         }
 
+        newData.lessPointsPlaysound = data[6][1];
+
         socket.emit("data", newData);
     });
 });
