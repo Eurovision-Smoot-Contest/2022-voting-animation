@@ -132,11 +132,9 @@ class Stade {
         // PUBLIC
         if (this.public < this.infos.countries_nb) {
             if (this.public == 0) {
-                this.FINAL_ORDER = this.POINTS;
+                this.FINAL_ORDER = JSON.parse(JSON.stringify(this.POINTS));
                 this.FINAL_ORDER.reverse();
             }
-            console.log(this.FINAL_ORDER, this.public);
-            // ERROR WITH ORDER
             const countryID = this.FINAL_ORDER[this.public].id;
             const pointsToAddIndex = getIndex(countryID, this.publicPoints);
             const pointsToAdd = this.publicPoints[pointsToAddIndex].points;
