@@ -2,21 +2,7 @@
 @import url(//db.onlinewebfonts.com/c/0f361cd91855471c1142a30bcd51e44f?family=Arsenica+Trial);
 
 body {
-    background: radial-gradient(circle, #640e19 0%, #110b19 100%);
-}
-#title {
-    position: absolute;
-    text-align: center;
-    font-family: "Gotham", sans-serif;
-    font-size: 3em;
-    font-weight: 500;
-    color: white;
-    width: 99%;
-    height: 100px;
-    top: 10%;
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: all 0.5s ease-in-out;
+    background-color: magenta;
 }
 .country {
     display: flex;
