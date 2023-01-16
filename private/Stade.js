@@ -16,7 +16,7 @@ class Stade {
         this.infos.jury_nb = this.DATA.jury_points.length;
         this.infos.countries_nb = this.DATA.countries.length;
 
-        let moving = vars.VOTE_MOVING_START;
+        let moving = vars.MOVING_START;
         for (let i = 0; i < this.DATA.countries.length; i++) {
             const country = this.DATA.countries[i];
             const countryID = getID(country.name);
@@ -27,7 +27,7 @@ class Stade {
                                         <h1 class="country-points" id="${countryID}-points">0</h1>
                                     </div>`);
             $(`#${countryID}`).css("bottom", `${moving}px`)
-            moving += vars.VOTE_MOVING_IN;
+            moving += vars.MOVING_IN;
             this.POINTS.push({id: countryID, points: 0});
         }
         this.POINTS.reverse();
@@ -70,14 +70,14 @@ class Stade {
         this.POINTS.sort((a, b) => {
             return b.points - a.points
         });
-        let moving = final ? this.VARS.FINAL_MOVING_START : this.VARS.VOTE_MOVING_START;
+        let moving = this.VARS.MOVING_START;
         let sound = false;
         for (i = (this.POINTS.length - 1); i >= 0; i--) {
             const country = this.POINTS[i];
             if ($(`#${country.id}`).css("bottom") != `${moving}px`) sound = true;
             $(`#${country.id}`).css("bottom", `${moving}px`);
             if (final) $(`#${country.id}-place`).css("bottom", `${moving}px`);
-            moving += final ? this.VARS.FINAL_MOVING_IN : this.VARS.VOTE_MOVING_IN;
+            moving += this.VARS.MOVING_IN;
         }
         if (sound) playsound("./sounds/switch_position.mp3");
     }
@@ -186,7 +186,6 @@ class Stade {
                 countryEl.css("opacity", 0);
             }
             this.sort(true);
-            $(`<div id="title">Results of the Eurovision Smoot Contest 2022</div>`).insertBefore("#countries");
 
             this.final = true;
             return;
