@@ -57,7 +57,7 @@ class Stade {
                             if (data.changeBG) {
                                 setTimeout(() => {
                                     $(`#${countryID}`).css("background", "#D74703");
-                                }, 1000);
+                                }, 500);
                             }
                         }, 250);
                     }
@@ -144,12 +144,14 @@ class Stade {
                 update: true,
                 changeBG: true
             });
-            setTimeout(() => this.sort(false), 1000);
-
-            const countryPoints = this.POINTS[getIndex(countryID, this.POINTS)].points;
-            if (countryPoints >= this.POINTS[0].points)
-                playsound("./sounds/new_leader.mp3");
-            else if (pointsToAdd <= this.VARS.LESS_POINTS_PLAYSOUND)
+            setTimeout(() => {
+                this.sort(false)
+                const countryPoints = this.POINTS[getIndex(countryID, this.POINTS)].points;
+                if (countryPoints >= this.POINTS[0].points)
+                        playsound("./sounds/new_leader.mp3");
+            }, 1000);
+            
+            if (pointsToAdd <= this.VARS.LESS_POINTS_PLAYSOUND)
                 playsound("./sounds/got_points_but_less.mp3");
             else
                 playsound("./sounds/got_points.mp3");
