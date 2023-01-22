@@ -22,7 +22,7 @@ const { google } = require("googleapis");
 const client = new google.auth.JWT(
     process.env.CLIENT_EMAIL,
     null,
-    process.env.PRIVATE_KEY,
+    process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
     ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
