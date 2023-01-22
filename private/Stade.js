@@ -79,7 +79,7 @@ class Stade {
             if (final) $(`#${country.id}-place`).css("bottom", `${moving}px`);
             moving += this.VARS.MOVING_IN;
         }
-        if (sound) playsound("./sounds/switch_position.mp3");
+        if (sound) playsound("./private/sounds/switch_position.mp3");
     }
 
     next() {
@@ -103,7 +103,7 @@ class Stade {
                 }
                 setTimeout(() => this.sort(false), 1000);
 
-                playsound("./sounds/got_points.mp3");
+                playsound("./private/sounds/got_points.mp3");
 
                 this.juryNext = true;
                 return;
@@ -118,7 +118,7 @@ class Stade {
                 });
                 setTimeout(() => this.sort(false), 1000);
 
-                playsound("./sounds/got_points.mp3");
+                playsound("./private/sounds/got_points.mp3");
 
                 this.POINTS.sort((a, b) => {
                     return a.points - b.points;
@@ -148,13 +148,13 @@ class Stade {
                 this.sort(false)
                 const countryPoints = this.POINTS[getIndex(countryID, this.POINTS)].points;
                 if (countryPoints >= this.POINTS[0].points)
-                        playsound("./sounds/new_leader.mp3");
+                        playsound("./private/sounds/new_leader.mp3");
             }, 1000);
             
             if (pointsToAdd <= this.VARS.LESS_POINTS_PLAYSOUND)
-                playsound("./sounds/got_points_but_less.mp3");
+                playsound("./private/sounds/got_points_but_less.mp3");
             else
-                playsound("./sounds/got_points.mp3");
+                playsound("./private/sounds/got_points.mp3");
 
             this.public ++;
             return;

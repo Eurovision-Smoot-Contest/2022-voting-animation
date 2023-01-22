@@ -15,6 +15,7 @@ const io = require("socket.io")(http);
 require("dotenv").config();
 
 const secretToken = process.env.SECRET_TOKEN;
+const step = JSON.parse(process.env.STEP);
 
 const { google } = require("googleapis");
 
@@ -26,19 +27,15 @@ const client = new google.auth.JWT(
 );
 
 app.use("/jquery", express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use(express.static("public"));
-app.use(express.static("private"))
+app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/private", express.static(path.join(__dirname, "private")));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-app.get(`/${secretToken}/`, (req, res) => {
+app.get(`/${secretToken}`, (req, res) => {
     res.sendFile(path.join(__dirname, "private/index.html"));
-});
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/index.html"), 404)
 });
 
 http.listen(port, () => {
@@ -83,6 +80,8 @@ io.on("connection", (socket) => {
 
         socket.emit("data", newData);
     });
+
+    socket.emit("step", step);
 });
 
 async function gsrun(cl, ran) {
