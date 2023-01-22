@@ -30,11 +30,13 @@ h2 {
     font-weight: 600;
     font-family: "Montserrat", sans-serif;
     color: #e36006;
+    margin: 0 0 14px 0;
 }
 h1 {
     font-size: 26px;
     font-weight: 600;
     font-family: "Montserrat", sans-serif;
+    margin: 0 0 14px 0;
 }
 span {
     font-size: 15px;
